@@ -1,0 +1,6 @@
+.sidebar_item_container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+}
