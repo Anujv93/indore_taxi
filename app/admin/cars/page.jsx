@@ -3,7 +3,6 @@ import { CarCard } from "@components/index";
 import { Button, Modal } from "flowbite-react";
 import { useEffect, useState } from "react";
 import {
-  DocumentData,
   collection,
   onSnapshot,
   query,

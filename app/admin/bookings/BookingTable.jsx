@@ -3,7 +3,6 @@ import { Table, Badge, Dropdown, Spinner, Modal } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { db } from "@firebase/config";
 import {
-  DocumentData,
   collection,
   onSnapshot,
   orderBy,
