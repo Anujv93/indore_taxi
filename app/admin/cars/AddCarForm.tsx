@@ -1,5 +1,5 @@
 import { db } from "@firebase/config";
-import { addDoc, collection } from "firebase/firestore";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import {
   ref,
@@ -56,6 +56,7 @@ function AddCarForm({ onClose }) {
       rate,
       seater,
       imageUrl,
+      timeStamp: Timestamp.now(),
     };
     console.log(carData);
 

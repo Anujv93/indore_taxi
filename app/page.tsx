@@ -1,9 +1,34 @@
-import { fetchCars } from "@utils";
+"use client";
 import { HomeProps } from "@types";
 import { CarCard, Hero, Footer, NavBar } from "@components/index";
+import { useEffect, useState } from "react";
+import {
+  DocumentData,
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { db } from "@firebase/config";
 
-export default async function Home({ searchParams }: HomeProps) {
-  const allCars = await fetchCars();
+export default function Home({ searchParams }: HomeProps) {
+  const [allCars, setallCars] = useState<DocumentData | []>([]);
+  const [isLoading, setisLoading] = useState(false);
+  useEffect(() => {
+    setisLoading(true);
+    // Subscribe to the "bookings" collection
+    const q = query(collection(db, "cars"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const bookingData: DocumentData = [];
+      snapshot.forEach((booking) => {
+        bookingData.push({ id: booking.id, ...booking.data() });
+      });
+      setallCars(bookingData);
+      setisLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
