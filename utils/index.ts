@@ -1,10 +1,6 @@
 import { getDocs, collection } from "firebase/firestore";
 
 import { db } from "@firebase/config";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "@feature/userSlice";
-import { useRouter } from "next/navigation";
 
 export async function fetchCars() {
   const result: any[] = [];
@@ -15,5 +11,3 @@ export async function fetchCars() {
   });
   return result;
 }
-
-
