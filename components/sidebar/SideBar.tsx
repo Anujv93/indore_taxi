@@ -30,12 +30,12 @@ export default function AdminSidebar() {
     <Sidebar>
       <Sidebar.Items className="sidebar_item_container">
         <Sidebar.ItemGroup className="sidebar_item_group">
-          <Sidebar.Collapse icon={HiShoppingBag} label="E-commerce">
+          {/* <Sidebar.Collapse icon={HiShoppingBag} label="E-commerce">
             <Sidebar.Item href="#">Products</Sidebar.Item>
             <Sidebar.Item href="#">Sales</Sidebar.Item>
             <Sidebar.Item href="#">Refunds</Sidebar.Item>
             <Sidebar.Item href="#">Shipping</Sidebar.Item>
-          </Sidebar.Collapse>
+          </Sidebar.Collapse> */}
           <Sidebar.Item href="/admin/cars" icon={HiViewBoards}>
             <p>Cars</p>
           </Sidebar.Item>
