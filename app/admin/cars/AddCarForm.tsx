@@ -137,7 +137,12 @@ function AddCarForm({ onClose }) {
             id="imageFile"
             className="mt-1 p-2 w-full border rounded-md"
             accept="image/*"
-            onChange={(e) => setImageAsFile(e.target.files[0])}
+            onChange={(e) => {
+              const selectedFile = e.target.files?.[0];
+              if (selectedFile) {
+                setImageAsFile(selectedFile);
+              }
+            }}
           />
         </div>
         <div className="flex justify-end">
