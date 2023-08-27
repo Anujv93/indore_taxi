@@ -1,6 +1,5 @@
 import { fetchCars } from "@utils";
 import { HomeProps } from "@types";
-import { fuels, yearsOfProduction } from "@constants";
 import { CarCard, Hero, Footer, NavBar } from "@components/index";
 
 export default async function Home({ searchParams }: HomeProps) {

@@ -35,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "app/admin/bookings/BookingTable.jsx", "app/admin/bookings/page.jsx", "app/admin/cars/AddCarForm.jsx", "app/admin/cars/page.jsx"  ],
+, "app/admin/bookings/BookingTable.tsx", "app/admin/bookings/page.tsx", "app/admin/cars/AddCarForm.tsx", "app/admin/cars/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]

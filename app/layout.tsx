@@ -2,7 +2,7 @@ import "./globals.css";
 import { Providers } from "./provider";
 
 export const metadata = {
-  title: "Car Hub",
+  title: "Indore Taxi",
   description: "Discover world's best car showcase application",
 };
 
