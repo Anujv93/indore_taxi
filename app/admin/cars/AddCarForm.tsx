@@ -7,8 +7,10 @@ import {
   getDownloadURL,
   getStorage,
 } from "firebase/storage";
+import { Select } from "flowbite-react";
 
 function AddCarForm({ onClose }) {
+  const [isLoading, setisLoading] = useState(false);
   const [acRate, setAcRate] = useState("");
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
@@ -17,7 +19,15 @@ function AddCarForm({ onClose }) {
   const [imageAsFile, setImageAsFile] = useState<File | null>(null);
   const [imgUrl, setImgUrl] = useState("");
 
+  const handleCategoryChange = (e) => {
+    console.log("Selected car:", e.target.value);
+    setCategory(e.target.value);
+  };
+
+  const categoryList = ["SEDAN", "MUV", "SUV", "BUS", "LUXURY"];
+
   const handleFireBaseUpload = async () => {
+    setisLoading(true);
     if (!imageAsFile) {
       console.error("No image selected");
       return;
@@ -46,6 +56,7 @@ function AddCarForm({ onClose }) {
         });
       }
     );
+    setisLoading(false);
   };
 
   const handleSubmit = async (imageUrl) => {
@@ -85,13 +96,23 @@ function AddCarForm({ onClose }) {
           <label htmlFor="category" className="block text-gray-700">
             Category
           </label>
-          <input
+          <Select onChange={handleCategoryChange} id="cars" required>
+            <option value="" disabled selected>
+              Select Car
+            </option>
+            {categoryList.map((car) => (
+              <option key={car} value={car}>
+                {car}
+              </option>
+            ))}
+          </Select>
+          {/* <input
             type="text"
             id="category"
             className="mt-1 p-2 w-full border rounded-md"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-          />
+          /> */}
         </div>
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700">
@@ -156,6 +177,7 @@ function AddCarForm({ onClose }) {
           </button>
           <button
             type="button"
+            disabled={isLoading}
             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
             onClick={handleFireBaseUpload}
           >

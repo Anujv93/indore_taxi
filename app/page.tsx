@@ -16,20 +16,28 @@ export default function Home({ searchParams }: HomeProps) {
   const [isLoading, setisLoading] = useState(false);
   useEffect(() => {
     setisLoading(true);
-    // Subscribe to the "bookings" collection
+
     const q = query(collection(db, "cars"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const bookingData: DocumentData = [];
-      snapshot.forEach((booking) => {
-        bookingData.push({ id: booking.id, ...booking.data() });
+      const carData: DocumentData = [];
+      snapshot.forEach((car) => {
+        carData.push({ id: car.id, ...car.data() });
       });
-      setallCars(bookingData);
+
+      // Custom sorting function based on category order: sedan, MUV, bus, luxury
+      const sortedCars = carData.sort((a, b) => {
+        const categoryOrder = ["SEDAN", "MUV", "SUV", "BUS", "LUXURY"];
+        return (
+          categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category)
+        );
+      });
+
+      setallCars(sortedCars);
       setisLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
-
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (

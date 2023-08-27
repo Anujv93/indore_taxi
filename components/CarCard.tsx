@@ -63,10 +63,10 @@ const CarCard = ({ car, isAdmin }: CarCardProps) => {
             <Image src="/tire.svg" width={20} height={20} alt="seat" />
             <p className="car-card__icon-text">{seater.toUpperCase()} Seater</p>
           </div>
-          <div className="car-card__icon">
+          {/* <div className="car-card__icon">
             <Image src="/gas.svg" width={20} height={20} alt="seat" />
             <p className="car-card__icon-text">Paterol</p>
-          </div>
+          </div> */}
         </div>
 
         <div className="car-card__btn-container">
