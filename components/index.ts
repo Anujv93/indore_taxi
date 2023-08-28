@@ -5,7 +5,6 @@ import NavBar from "./Navbar";
 
 import SearchBar from "./Searchbar";
 import Hero from "./Hero";
-import MainNav from "./admin_main_nav";
 import BookingForm from "./BookingForm";
 
 export {
@@ -15,6 +14,5 @@ export {
   Footer,
   NavBar,
   SearchBar,
-  MainNav,
   BookingForm,
 };
