@@ -11,6 +11,7 @@ import {
   onSnapshot,
   Timestamp,
 } from "firebase/firestore";
+import { locations } from "@constants";
 
 export default function AdminBookingForm() {
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ export default function AdminBookingForm() {
   const [isError, setError] = useState(false);
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [from, setFrom] = useState("INDORE");
+  const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -33,6 +34,7 @@ export default function AdminBookingForm() {
         name,
         contact,
         to,
+        from,
         date,
         time,
         selectedCar,
@@ -71,6 +73,10 @@ export default function AdminBookingForm() {
 
     return () => unsubscribe();
   }, []);
+
+  const handleLocationChange = (e) => {
+    setFrom(e.target.value);
+  };
 
   const handleCarChange = (e) => {
     console.log("Selected car:", e.target.value);
@@ -126,13 +132,23 @@ export default function AdminBookingForm() {
         <div className="mb-2 block">
           <Label htmlFor="from" value="From" />
         </div>
-        <TextInput
+        <Select onChange={handleLocationChange} id="location" required>
+          <option value="" disabled selected>
+            Select Starting City
+          </option>
+          {locations.map((city) => (
+            <option key={city} value={city}>
+              {city}
+            </option>
+          ))}
+        </Select>
+        {/* <TextInput
           id="from"
           disabled
           type="input"
           placeholder="INDORE"
           value={from}
-        />
+        /> */}
       </div>
       <BsArrowDownUp className="m-auto" />
       <div>

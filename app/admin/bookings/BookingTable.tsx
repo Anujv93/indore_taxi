@@ -81,7 +81,9 @@ export default function BookingTable() {
                     <p className="text-gray-900 mb-1 dark:text-white">
                       {booking.to}
                     </p>
-                    <p className="sub_data">INDORE ({booking.selectedCar})</p>
+                    <p className="sub_data">
+                      {booking.from} ({booking.selectedCar})
+                    </p>
                   </div>
                 </Table.Cell>
                 <Table.Cell>

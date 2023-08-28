@@ -1,11 +1,12 @@
 "use client";
 
 import CustomButton from "./CustomButton";
-import { Label, TextInput, Spinner } from "flowbite-react";
+import { Label, TextInput, Spinner, Select } from "flowbite-react";
 import { BsArrowDownUp } from "react-icons/bs";
 import { useState } from "react";
 import { db } from "@firebase/config";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { locations } from "@constants";
 
 interface carDetail {
   name: string;
@@ -16,10 +17,14 @@ function BookingForm(carName: carDetail) {
   const [isError, setError] = useState(false);
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [from, setFrom] = useState("INDORE");
+  const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+
+  const handleLocationChange = (e) => {
+    setFrom(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +36,7 @@ function BookingForm(carName: carDetail) {
         name,
         contact,
         to,
+        from,
         date,
         time,
         selectedCar,
@@ -44,6 +50,7 @@ function BookingForm(carName: carDetail) {
       setTo("");
       setDate("");
       setTime("");
+      setFrom("");
       console.log("Data submitted successfully.");
       setSuccess(true);
       setLoading(false);
@@ -102,13 +109,23 @@ function BookingForm(carName: carDetail) {
         <div className="mb-2 block">
           <Label htmlFor="from" value="From" />
         </div>
-        <TextInput
+        <Select onChange={handleLocationChange} id="location" required>
+          <option value="" disabled selected>
+            Select Starting City
+          </option>
+          {locations.map((city) => (
+            <option key={city} value={city}>
+              {city}
+            </option>
+          ))}
+        </Select>
+        {/* <TextInput
           id="from"
           disabled
           type="input"
           placeholder="INDORE"
           value={from}
-        />
+        /> */}
       </div>
       <BsArrowDownUp className="m-auto" />
       <div>
