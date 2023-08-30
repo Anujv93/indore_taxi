@@ -164,8 +164,8 @@ export default function BookingTable() {
         <Modal.Body>
           <div className="m-auto">
             <DriverDetailForm
-              onClose={closeDriverDetailModal}
               selectedData={editBookingData}
+              onClose={closeDriverDetailModal}
             />
           </div>
         </Modal.Body>

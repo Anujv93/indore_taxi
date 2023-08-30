@@ -215,7 +215,7 @@ export default function EditBookingForm({ selectedData, onClose }) {
   const [to, setTo] = useState(selectedData.to);
   const [date, setDate] = useState(selectedData.date);
   const [time, setTime] = useState(selectedData.time);
-  const [selectedCar, setCar] = useState(selectedData.car);
+  const [selectedCar, setCar] = useState(selectedData.selectedCar);
   const [name, setName] = useState(selectedData.name);
   const [contact, setContact] = useState(selectedData.contact);
   const [status, setStatus] = useState(selectedData.status);
@@ -338,7 +338,7 @@ export default function EditBookingForm({ selectedData, onClose }) {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="car" value="Car" />
+            <Label htmlFor="Status" value="Status" />
           </div>
           <Select
             id="status"

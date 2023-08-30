@@ -3,12 +3,12 @@ import { doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 function DriverDetailForm({ onClose, selectedData }) {
   // State for form fields
-  const [car, setCar] = useState(selectedData.car);
+  const [car, setCar] = useState(selectedData.selectedCar);
   const [category, setCategory] = useState("");
   const [vehicleNumber, setVehicleNumber] = useState("");
   const [driverName, setDriverName] = useState("");
   const [driverNumber, setMobileNumber] = useState("");
-
+  console.log(car);
   // Handler for form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,7 +42,7 @@ function DriverDetailForm({ onClose, selectedData }) {
             type="text"
             id="driverName"
             className="mt-1 p-2 w-full border rounded-md"
-            value={car}
+            value={selectedData.selectedCar}
             onChange={(e) => setCar(e.target.value)}
           />
         </div>
