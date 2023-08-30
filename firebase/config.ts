@@ -2,7 +2,7 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -20,5 +20,8 @@ let firebase_app =
 
 const db = getFirestore(firebase_app);
 const auth = getAuth(firebase_app);
-const analytics = getAnalytics(firebase_app);
+const analytics = isSupported().then((yes) =>
+  yes ? getAnalytics(firebase_app) : null
+);
+
 export { firebase_app, db, auth };
