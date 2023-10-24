@@ -1,7 +1,6 @@
 // features/userSlice.js
 
 import { createSlice } from "@reduxjs/toolkit";
-import { redirect } from "next/navigation";
 
 export const userSlice = createSlice({
   name: "user",

@@ -35,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "app/admin/bookings/BookingTable.tsx", "app/admin/bookings/page.tsx", "app/admin/cars/AddCarForm.tsx", "app/admin/cars/page.tsx"  ],
+, "app/admin/bookings/BookingTable.tsx", "app/admin/bookings/page.tsx", "app/admin/cars/AddCarForm.tsx", "app/admin/cars/page.tsx", "firebase/config.ts"  ],
   "exclude": [
     "node_modules"
   ]

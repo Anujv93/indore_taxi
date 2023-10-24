@@ -13,6 +13,7 @@ function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const [isLoading, setisLoading] = useState(false);
+  
   useEffect(() => {
     setisLoading(true);
     const unsuscribe = auth.onAuthStateChanged((userAuth) => {

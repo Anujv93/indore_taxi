@@ -5,6 +5,8 @@ import { db } from "@firebase/config";
 import {
   DocumentData,
   collection,
+  deleteDoc,
+  doc,
   onSnapshot,
   orderBy,
   query,
@@ -17,6 +19,7 @@ export default function BookingTable() {
   const [isLoading, setisLoading] = useState(false);
   const [bookings, setBookings] = useState<DocumentData | []>([]);
   const [openModal, setOpenModal] = useState<String | null>(null); // Set this state
+  const [deleteBookingId, setDeleteBookingId] = useState<string | null>(null);
 
   const openEditBookingModal = () => {
     setOpenModal("editBooking");
@@ -32,6 +35,22 @@ export default function BookingTable() {
   const closeDriverDetailModal = () => {
     setOpenModal(null);
   };
+
+  const handleDeleteBooking = (bookingId: string) => {
+    setDeleteBookingId(bookingId);
+  };
+
+  const confirmDeleteBooking = async () => {
+    if (deleteBookingId) {
+      try {
+        await deleteDoc(doc(db, "bookings", deleteBookingId));
+        setDeleteBookingId(null);
+      } catch (error) {
+        console.error("Error deleting booking:", error);
+      }
+    }
+  };
+
   useEffect(() => {
     setisLoading(true);
     // Subscribe to the "bookings" collection
@@ -131,6 +150,15 @@ export default function BookingTable() {
                     >
                       Edit Booking
                     </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item
+                      onClick={() => {
+                        handleDeleteBooking(booking.id);
+                      }}
+                      className="text-red-600"
+                    >
+                      Delete Booking
+                    </Dropdown.Item>
                   </Dropdown>
                 </Table.Cell>
               </Table.Row>
@@ -167,6 +195,33 @@ export default function BookingTable() {
               selectedData={editBookingData}
               onClose={closeDriverDetailModal}
             />
+          </div>
+        </Modal.Body>
+      </Modal>
+      <Modal
+        dismissible
+        show={deleteBookingId !== null}
+        onClose={() => setDeleteBookingId(null)}
+        className="modal_class rounded-lg shadow-md"
+      >
+        <Modal.Header>Confirm Delete</Modal.Header>
+        <Modal.Body>
+          <div className="m-auto">
+            <p>Are you sure you want to delete this booking?</p>
+            <div className="flex justify-end mt-4">
+              <button
+                onClick={() => setDeleteBookingId(null)}
+                className="mr-2 px-4 py-2 border rounded-md bg-white text-gray-600 hover:bg-gray-100"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeleteBooking}
+                className="px-4 py-2 border rounded-md bg-red-600 text-white hover:bg-red-700"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </Modal.Body>
       </Modal>

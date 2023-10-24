@@ -44,6 +44,70 @@ function BookingForm(carName: carDetail) {
       });
       console.log("Document written with ID :", docRef.id);
 
+      // await fetch("https://graph.facebook.com/v17.0/133046393219799/messages", {
+      //   method: "POST",
+      //   headers: {
+      //     Authorization:
+      //       "Bearer EAAKIKMsVyU4BOZBAJyTj1uubbZCYmuXJxVM2Ig43JKVANQfQjdpzUHAEGUP0wXGbr7cVbHPZAjiO807iuRzkJbpNUbYTyEstdPWNPTce8ybTF2Sy9ljrzbO7BGlE9pvzi4dTnDZCzPCAdGuT1NfharOZCP7lTcvNiBz7KmVNyckSZAnushJwbpu0FfAPzaP131eZBVO5SBN5G4jidfW",
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     messaging_product: "whatsapp",
+      //     to: "916260512625",
+      //     type: "template",
+      //     template: {
+      //       name: "after_booking",
+      //       language: {
+      //         code: "en",
+      //       },
+      //       components: [
+      //         {
+      //           type: "header",
+      //           parameters: [
+      //             {
+      //               type: "image",
+      //               image: {
+      //                 link: "https://firebasestorage.googleapis.com/v0/b/car-rental-cbf71.appspot.com/o/images%2Findore%20taxi.png?alt=media&token=2248981a-ad67-4ea5-8ce5-dfd33ee1c919",
+      //               },
+      //             },
+      //           ],
+      //         },
+      //         {
+      //           type: "body",
+      //           parameters: [
+      //             {
+      //               type: "text",
+      //               text: name,
+      //             },
+      //             {
+      //               type: "text",
+      //               text: selectedCar,
+      //             },
+      //             {
+      //               type: "date_time",
+      //               date_time: {
+      //                 fallback_value: date.toString(),
+      //               },
+      //             },
+      //             {
+      //               type: "text",
+      //               text: time,
+      //             },
+      //             {
+      //               type: "text",
+      //               text: from,
+      //             },
+      //             {
+      //               type: "text",
+      //               text: to,
+      //             },
+      //           ],
+      //         },
+      //       ],
+      //     },
+      //   }),
+      // });
+
       // Clear form fields
       setName("");
       setContact("");
