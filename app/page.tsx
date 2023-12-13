@@ -10,6 +10,7 @@ import {
   query,
 } from "firebase/firestore";
 import { db } from "@firebase/config";
+import MapDetail from "@components/MapBox";
 
 export default function Home({ searchParams }: HomeProps) {
   const [allCars, setallCars] = useState<DocumentData | []>([]);
@@ -75,6 +76,7 @@ export default function Home({ searchParams }: HomeProps) {
             </div>
           )}
         </div>
+        <MapDetail />
       </main>
       <Footer />
     </div>
