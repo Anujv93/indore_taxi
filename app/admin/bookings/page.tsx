@@ -13,12 +13,12 @@ function Booking() {
   const user = useSelector(selectUser);
   const router = useRouter(); // Initialize the router
 
-  useEffect(() => {
-    if (!user) {
-      console.log("Logged Out");
-      router.push("/auth"); // Use the router to navigate
-    }
-  }, [user, router]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     console.log("Logged Out");
+  //     router.push("/auth"); // Use the router to navigate
+  //   }
+  // }, [user, router]);
   const [openModal, setOpenModal] = useState<String | null>(null);
 
   const openAddProductModal = () => {

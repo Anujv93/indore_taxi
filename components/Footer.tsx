@@ -17,7 +17,7 @@ const Footer = () => (
         <h1 className="text-xl font-extrabold">INDORE TAXI</h1>
         <p className="text-base text-gray-700">
           Indore Taxi 2023 <br />
-          All Rights Reserved &copy;
+          Powered By My Tours & Travels
         </p>
       </div>
 

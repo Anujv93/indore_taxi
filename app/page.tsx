@@ -76,7 +76,7 @@ export default function Home({ searchParams }: HomeProps) {
           )}
         </div>
       </main>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
