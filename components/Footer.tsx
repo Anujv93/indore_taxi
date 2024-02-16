@@ -45,10 +45,10 @@ const Footer = () => (
       <p>@2023 IndoreTaxi. All rights reserved</p>
 
       <div className="footer__copyrights-link">
-        <Link href="/" className="text-gray-500">
+        <Link href="/policy" className="text-gray-500">
           Privacy & Policy
         </Link>
-        <Link href="/" className="text-gray-500">
+        <Link href="/policy" className="text-gray-500">
           Terms & Condition
         </Link>
       </div>
