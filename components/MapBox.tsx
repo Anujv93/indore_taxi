@@ -35,11 +35,16 @@ function MapDetail() {
               <a className="text-primary-blue leading-relaxed">
                 mttindore@gmail.com
               </a>
+              <br />
+              <a className="text-primary-blue leading-relaxed">
+                mytravelsindore@gmail.com
+              </a>
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
                 PHONE
               </h2>
-              <p className="leading-relaxed">+91 99935 34100</p>
-              <p className="leading-relaxed">+91 731 4077400</p>
+              <p className="leading-relaxed">+91 810 907 7400</p>
+              <p className="leading-relaxed">+91 999 353 4100</p>
+              <p className="leading-relaxed">+91 731 407 7400</p>
             </div>
           </div>
         </div>

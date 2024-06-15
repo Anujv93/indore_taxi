@@ -66,7 +66,6 @@ function ReturnandRefund() {
       <div className="policy-section bg-white shadow-md rounded-lg p-6">
         <h2 className="text-xl font-bold mb-4">Refund and Return Policy:</h2>
         <ul className="list-disc pl-5">
-          <li>Refunds are not allowed under any circumstances.</li>
           <li>
             A full refund will be issued if the reservation is canceled at least
             24 hours before the scheduled trip start time.
